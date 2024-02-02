@@ -1,0 +1,52 @@
+﻿<Window x:Class="PlayListImport.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlayListImport"
+        mc:Ignorable="d"
+        Title="PLEX Import Tool" Height="600" Width="1000" FontSize="16" ResizeMode="CanMinimize">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="50,10,10,10" Width="400" HorizontalAlignment="Left">
+            <TextBlock Text="PLEX Server URL"  />
+            <TextBox BorderThickness="2" Text="http://localhost:32400"/>
+
+            <Label Height="20"/>
+            <TextBlock Text="X-Plex-Token" />
+            <TextBox BorderThickness="2" />
+
+            <Label Height="20"/>
+            <TextBlock Text="Section ID" />
+            <TextBox BorderThickness="2" Width="100" HorizontalAlignment="Left"/>
+            <TextBlock Text="This will be a numeric value" FontSize="12" />
+
+            <Label Height="20"/>
+            <TextBlock Text="Path to playlist file" />
+            <TextBox BorderThickness="2" Text="C:\plex\music\...m3u OR /volume1/music/plex/...m3u"/>
+            <TextBlock Text="NOTE: The path is an absolute path that exists on your PMS" FontSize="12"/>
+
+            <Label Height="20"/>
+            <Button x:Name="btnImport" Content="Import Playlist" Height="100"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Margin="550,10,0,10" Width="400" HorizontalAlignment="Left">
+
+            <TextBlock Text="To Get Section ID and X-Plex Token:" FontWeight="Bold"/>
+
+            <TextBlock Margin="0,10"> 1. Open your <Bold>Plex server web app</Bold>, as normal.</TextBlock>
+
+            <TextBlock Margin="0,10" TextWrapping="Wrap"> 2. In <Bold>Plex</Bold>, navigate to any file in the library for which you want to import a playlist.
+                        (e.g. in your 'Rock Music' library, navigate to 'BornToBeWild.mp3').</TextBlock>
+
+            <TextBlock Margin="0,10" TextWrapping="Wrap"> 3. On the play bar for that library item, click the <Bold>More Actions ellipses (...)</Bold>, select.
+            <Bold>Get Info</Bold>, and then click View XML.</TextBlock>
+
+            <TextBlock TextWrapping="Wrap" Text="A new browser window opens containing XML details about the library item."/>
+
+            <TextBlock TextWrapping="Wrap" Margin="0,10"> 4. From the URL, copy the <Bold>X-Plex-Token</Bold> value into a text editor.</TextBlock>
+
+            <TextBlock TextWrapping="Wrap" Margin="0,10"> 5. From the page content, copy the <Bold>librarySectionID</Bold> value into a text editor.</TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -5,29 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlayListImport"
         mc:Ignorable="d"
-        Title="PLEX Import Tool" Height="600" Width="1000" FontSize="16" ResizeMode="CanMinimize">
+        Title="PLEX Import Tool" Height="800" Width="1000" FontSize="16" ResizeMode="CanMinimize">
 
     <Grid>
         <StackPanel Orientation="Vertical" Margin="50,10,10,10" Width="400" HorizontalAlignment="Left">
-            <TextBlock Text="PLEX Server URL"  />
-            <TextBox BorderThickness="2" Text="http://localhost:32400"/>
+			<TextBox Name="Url" BorderThickness="2" Text="http://192.168.50.100:32400"/>
+			<TextBlock Text="PLEX Server URL"  />
+            
+            <Label Height="20"/>
+			<TextBox Name="Token" BorderThickness="2" Text="U4JtDv1icXefjoq8kWyW"/>
+            <TextBlock Text="X-Plex-Token"/>
 
             <Label Height="20"/>
-            <TextBlock Text="X-Plex-Token" />
-            <TextBox BorderThickness="2" />
-
-            <Label Height="20"/>
-            <TextBlock Text="Section ID" />
-            <TextBox BorderThickness="2" Width="100" HorizontalAlignment="Left"/>
+			<TextBox Name="SectionId" BorderThickness="2" Width="100" HorizontalAlignment="Left" Text="7"/>
+            <TextBlock Text="Section ID"/>
             <TextBlock Text="This will be a numeric value" FontSize="12" />
 
             <Label Height="20"/>
+			<TextBox Name="PlaylistPath" BorderThickness="2" Text="C:\plex\music\playlist.m3u OR /volume1/music/plex/playlist.m3u"/>
             <TextBlock Text="Path to playlist file" />
-            <TextBox BorderThickness="2" Text="C:\plex\music\...m3u OR /volume1/music/plex/...m3u"/>
             <TextBlock Text="NOTE: The path is an absolute path that exists on your PMS" FontSize="12"/>
 
             <Label Height="20"/>
-            <Button x:Name="btnImport" Content="Import Playlist" Height="100"/>
+            <Button x:Name="btnImport"
+					Click="Import_Click"
+					Content="Import Playlist"
+					Height="100"/>
+			
+			<Label Height="20"/>
+			<TextBox Name="Log" BorderThickness="2" Height="100"/>
+			<TextBlock Text="Log" />
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Margin="550,10,0,10" Width="400" HorizontalAlignment="Left">
